@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PRAD01": {
+      "commandName": "Project",
+      "remoteDebugEnabled": false
+    }
+  }
+}
