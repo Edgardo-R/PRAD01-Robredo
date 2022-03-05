@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using PRAD01.Models;
+using PRAD01.Controlers;
 
 namespace PRAD01.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PageSitios : ContentPage
     {
+        Plugin.Media.Abstractions.MediaFile photo = null;
         public PageSitios()
         {
             InitializeComponent();
@@ -80,6 +83,32 @@ namespace PRAD01.Views
                 fnsEx.ToString();
                 // Handle not supported on device exception
             }
+        }
+
+        private async void btnagregar_Clicked_1(object sender, EventArgs e)
+        {
+            var site = new Sitios()
+            {
+                descripcion = descripcion.Text,
+                longitud = Convert.ToDouble(longitud.Text),
+                latitud = Convert.ToDouble(latitud.Text),
+                
+                fecha = fecha.Date
+
+            };
+            if (await SitiosControlers.AddSitios(site)>0)
+            {
+                await DisplayAlert("Aviso", "Registro Adicionado", "Ok");
+            }
+            else
+            {
+                await DisplayAlert("Aviso", "Ha ocurrido un error", "OK");
+            }
+        }
+
+        private async void btnfoto_Clicked(object sender, EventArgs e)
+        {
+            
         }
     }
 }

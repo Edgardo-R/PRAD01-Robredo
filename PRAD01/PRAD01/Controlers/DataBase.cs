@@ -15,9 +15,9 @@ namespace PRAD01.Controlers
         {
             return DB.dbconexion.Table<Personas>().ToListAsync();
         }
-        public static Task<List<SitiosControlers>> ObtenerListaSitios()
+        public static Task<List<Sitios>> ObtenerListaSitios()
         {
-            return DB.dbconexion.Table<SitiosControlers>().ToListAsync();
+            return DB.dbconexion.Table<Sitios>().ToListAsync();
         }
         public static Task<int> AddPersona(Personas persona)
         {

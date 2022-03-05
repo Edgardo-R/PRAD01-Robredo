@@ -9,21 +9,18 @@ using System.Threading.Tasks;
 
 namespace PRAD01.Controlers
 {
-    public class SitiosControlers
+    public static class SitiosControlers
     {
-        public SitiosControlers()
-        {
-        }
         //procedimientos
         // retorna todas las filas de la tabla personas
-        public Task<List<Sitios>> ObtenerListaSitios()
+        public static Task<List<Sitios>> ObtenerListaSitios()
         {
             return DB.dbconexion.Table<Sitios>().ToListAsync();
         }
         //operaciones crud-create, read, update, delete
         //insert, select, update, delete
         //create-update
-        public Task<int> AddSitios (Sitios sitio)
+        public static Task<int> AddSitios (Sitios sitio)
         {
             if (sitio.IdFoto != 0)
             {
@@ -37,14 +34,14 @@ namespace PRAD01.Controlers
             }
         }
         // obtenemos por el id un registro de un persona
-        public Task<Sitios> obtenerSitio(int pid)
+        public static Task<Sitios> obtenerSitio(int pid)
         {
             return DB.dbconexion.Table<Sitios>()
                 .Where(i => i.IdFoto == pid)
                 .FirstOrDefaultAsync();
         }
         // eliminamos el registro de una persona
-        public Task<int> DelSitio(Sitios sitio)
+        public static Task<int> DelSitio(Sitios sitio)
         {
             return DB.dbconexion.DeleteAsync(sitio);
         }

@@ -4,6 +4,11 @@
              x:Class="PRAD01.Views.PageSitios">
     <ContentPage.Content>
         <StackLayout>
+
+            <Image x:Name="Foto"
+                   BackgroundColor="AliceBlue"
+                   WidthRequest="100" HeightRequest="170"/>
+            <Button x:Name="btnfoto" Text="Agregar Foto" Clicked="btnfoto_Clicked"/>
             <Label Text="Codigo"/>
             <Entry Keyboard="Numeric"
                    Placeholder="Codigo"
@@ -28,7 +33,7 @@
             <DatePicker Format="dd/MM/yyyy"
                         x:Name="fecha"/>
 
-            <Button x:Name="btnagregar" Text="Agregar sitio" Clicked="btnagregar_Clicked"/>
+            <Button x:Name="btnagregar" Text="Agregar sitio" Clicked="btnagregar_Clicked_1"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
